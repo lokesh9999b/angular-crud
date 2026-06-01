@@ -1,0 +1,36 @@
+.container{
+    margin: 80%;
+    margin: 30px auto;
+    font-family: Arial, sans-serif;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+button{
+  padding: 8px 14px;
+  margin-right: 5px;
+  background-color: blue;
+  border-radius: 4px;
+  cursor: pointer;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th{
+    background-color: #191919;
+    color: white;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}   
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

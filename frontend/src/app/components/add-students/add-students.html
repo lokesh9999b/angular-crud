@@ -1,0 +1,69 @@
+<div class="form-container">
+    <h2>Add Student</h2>
+    <form #studentform="ngForm" (ngSubmit)="onSubmit(studentform)">
+        <div class="form-group">
+            <label for="name">Student Name:</label>
+            <input type="text" 
+            id="name" 
+            name="name" 
+            [(ngModel)]="student.name" 
+            #studentname="ngModel"
+            required
+            minlength="2"
+            class="form-control">
+
+            <div *ngIf="studentname.invalid && (studentname.dirty || studentname.touched)" class="error">
+                <small *ngIf="studentname.errors?.['required']">Name is required.</small>
+                <small *ngIf="studentname.errors?.['minlength']">Name must be at least 2 characters long.</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="rollNumber">Roll Number:</label>
+            <input type="text" 
+            id="rollNumber" 
+            name="rollNumber" 
+            [(ngModel)]="student.rollNumber" 
+            #studentrollNumber="ngModel"
+            required
+            class="form-control">
+
+            <div *ngIf="studentrollNumber.invalid && (studentrollNumber.dirty || studentrollNumber.touched)" class="error">
+                <small *ngIf="studentrollNumber.errors?.['required']">Roll Number is required.</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" 
+            id="age" 
+            name="age" 
+            [(ngModel)]="student.age" 
+            #studentage="ngModel"
+            required
+            min="1"
+            class="form-control">
+
+            <div *ngIf="studentage.invalid && (studentage.dirty || studentage.touched)" class="error">
+                <small *ngIf="studentage.errors?.['required']">Age is required.</small>
+                <small *ngIf="studentage.errors?.['min']">Age must be a positive number.</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="grade">Grade:</label>
+            <input type="text" 
+            id="grade" 
+            name="grade" 
+            [(ngModel)]="student.grade" 
+            #studentgrade="ngModel"
+            required
+            class="form-control">
+
+            <div *ngIf="studentgrade.invalid && (studentgrade.dirty || studentgrade.touched)" class="error">
+                <small *ngIf="studentgrade.errors?.['required']">Grade is required.</small>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" [disabled]="studentform.invalid">Add Student</button>
+            <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>
+        </div>
+    </form>
+</div>

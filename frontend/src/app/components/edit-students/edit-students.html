@@ -1,0 +1,43 @@
+<div class="container" style="max-width: 550px; margin-top: 50px;">
+  <div class="card shadow-sm border-0">
+    <div class="card-header bg-dark text-white p-3 text-center rounded-top">
+      <h4 class="mb-0">Modify Student Data Profile</h4>
+    </div>
+    
+    <div class="card-body p-4">
+      <form (ngSubmit)="onUpdate()">
+        
+        <div class="mb-3">
+          <label class="form-label fw-bold text-secondary">Full Name</label>
+          <input type="text" class="form-control px-3" [(ngModel)]="student.name" name="name" placeholder="Enter full name" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold text-secondary">Roll Number</label>
+          <input type="text" class="form-control px-3 bg-light text-muted" [(ngModel)]="student.rollNumber" name="rollNumber" readonly>
+          <small class="text-muted text-xs d-block mt-1">Unique roll numbers cannot be altered.</small>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold text-secondary">Age</label>
+          <input type="number" class="form-control px-3" [(ngModel)]="student.age" name="age" placeholder="Enter age" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold text-secondary">Grade</label>
+          <input type="text" class="form-control px-3" [(ngModel)]="student.grade" name="grade" placeholder="Enter grade (e.g. A, B, C)" required>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mt-4 pt-2">
+          <button type="button" class="btn btn-outline-secondary px-4" routerLink="/">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-primary px-4 fw-bold shadow-sm">
+            Save Profile Changes
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

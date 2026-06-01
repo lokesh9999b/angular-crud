@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="header d-flex justify-content-between align-items-center my-4">
+    <h2>Students Management</h2>
+    <button class="btn btn-primary" routerLink="/students/add">Add Student</button>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Roll Number</th>
+        <th>Age</th>
+        <th>Grade</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (student of studentsList; track student.rollNumber) {
+        <tr>
+          <td>{{ student.name }}</td>
+          <td><span class="badge bg-secondary">{{ student.rollNumber }}</span></td>
+          <td>{{ student.age }}</td>
+          <td><strong>{{ student.grade }}</strong></td>
+          <td>
+            <button class="btn btn-sm btn-warning me-2" [routerLink]="['/students/edit', student.rollNumber]">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteStudent(student.rollNumber)">Delete</button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="5" class="text-center text-muted">No students found inside the database grid collections.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+</div>
