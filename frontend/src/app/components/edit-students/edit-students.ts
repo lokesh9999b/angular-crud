@@ -49,7 +49,7 @@ export class EditStudents implements OnInit {
     this.studentService.updateStudentByRollNumber(this.rollNumber, this.student).subscribe({
       next: () => {
         alert('Student updated successfully');
-        this.router.navigate(['/']);
+        this.router.navigate(['/students']);
 
       },
       error: (error) => {

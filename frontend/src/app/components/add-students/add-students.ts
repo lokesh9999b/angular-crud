@@ -34,7 +34,7 @@ export class AddStudents {
         next: (response) => {
           console.log('Student added successfully', response);
           alert('Student added successfully');
-          this.router.navigate(['/']);
+          this.router.navigate(['/students']);
         },
         error: (error) => {
           console.error('Error adding student', error);
@@ -45,6 +45,6 @@ export class AddStudents {
   }
 
   goBack() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/students']);
   }
 }
