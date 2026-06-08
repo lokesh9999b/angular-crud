@@ -27,7 +27,7 @@ app.use('/students', requireAuth, studentRoutes);
 app.use('/api/universities', requireAuth, universityRoutes);
 app.use('/auth', authRoutes);
 app.use('/webhook', webhookRoutes);
-console.log('dummy');
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
