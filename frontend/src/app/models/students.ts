@@ -4,5 +4,5 @@ export interface Students {
     rollNumber: string;
     age: number;
     grade: string;
-
+    university?: string;
 }

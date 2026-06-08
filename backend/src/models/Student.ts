@@ -5,13 +5,15 @@ export interface IStudent extends Document {
     rollNumber: string;
     age: number;
     grade: string;
+    university?: string;
 }
 
 const studentSchema = new Schema<IStudent>({
     name: { type: String, required: true, trim: true },
     rollNumber: { type: String, required: true, unique: true, trim: true },
     age: { type: Number, required: true },
-    grade: { type: String, required: true, trim: true }
+    grade: { type: String, required: true, trim: true },
+    university: { type: String, trim: true }
 },{
     timestamps: true
 });

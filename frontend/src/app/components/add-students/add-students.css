@@ -71,3 +71,54 @@ label{
 .btn:hover {
   opacity: 0.9;
 }
+
+/* === University Autocomplete Styles === */
+
+.university-autocomplete {
+    position: relative;
+}
+
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions-list li {
+    padding: 10px 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.suggestions-list li:last-child {
+    border-bottom: none;
+}
+
+.suggestions-list li:hover {
+    background-color: #e9ecef;
+}
+
+.suggestions-list li strong {
+    color: #333;
+    font-size: 0.95em;
+}
+
+.suggestions-list li small {
+    color: #888;
+    font-size: 0.85em;
+}

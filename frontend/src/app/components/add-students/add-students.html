@@ -61,6 +61,31 @@
                 <small *ngIf="studentgrade.errors?.['required']">Grade is required.</small>
             </div>
         </div>
+
+        <div class="form-group university-autocomplete">
+            <label for = "university">university</label>
+            <input type="text"
+                 id="university"
+                 name="university"
+                 [(ngModel)]="student.university" 
+                 (input)="onUniversityInput($any($event.target).value)"
+                 (blur)="showSuggestions = false"
+                 autocomplete="off"
+                 placeholder="start typing to search universities..."
+                 class="form-control">
+
+            @if (showSuggestions) {
+               <ul class="suggestions-list">
+                   @for (uni of universitySuggestions; track uni.name) {
+                       <li (mousedown)="selectUniversity(uni)">
+                           <strong>{{ uni.name }}</strong>
+                           <small>{{ uni.country }}</small>
+                       </li>
+                   }
+               </ul>
+            }
+
+        </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary" [disabled]="studentform.invalid">Add Student</button>
             <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>

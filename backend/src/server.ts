@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import './config/passport';
 import authRoutes from './routes/auth.route';
+import universityRoutes from './routes/university.route';
 import { requireAuth } from './middleware/auth.middleware';
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(cors({origin: 'http://localhost:4200',
 app.use(express.json());
 
 app.use('/students', requireAuth, studentRoutes);
+app.use('/api/universities', requireAuth, universityRoutes);
 app.use('/auth', authRoutes);
 
 app.listen(PORT, () => {
