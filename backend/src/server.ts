@@ -10,6 +10,7 @@ import authRoutes from './routes/auth.route';
 import universityRoutes from './routes/university.route';
 import { requireAuth } from './middleware/auth.middleware';
 import webhookRoutes from './routes/webhook.route';
+import './workers/github.worker';
 dotenv.config();
 
 const app: Application = express();

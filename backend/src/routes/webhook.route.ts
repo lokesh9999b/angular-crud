@@ -1,31 +1,19 @@
 import {Router, Request, Response} from 'express';
+import { githubQueue } from '../queues/github.queue';
 
 const router = Router();
 
-router.post('/github', (req:Request, res:Response)=>{
+router.post('/github', async (req:Request, res:Response)=>{
 
     const event = req.headers['x-github-event'];
 
     if (event ==='push')
     {
         const payload = req.body;
-        const repoName = payload.repository?.name;
-        const pusherName= payload.pusher?.name;
-        const branch = payload.ref;
-        const commit = payload.commits.message;
-        
-        console.log(`Repo: ${repoName}`);
-        console.log(`Pusher: ${pusherName}`);
-        console.log(`Branch: ${branch}`);
-        console.log(`Commit: ${commit}`);
+        console.log('Received push event, adding to background queue...');
 
-        if (payload.commits && payload.commits.length >0)
-        {
-            console.log('Commits:');
-            payload.commits.forEach((commit: any) => {
-                console.log(`- ${commit.message} (by ${commit.author.name})`);
-            });
-        }
+        await githubQueue.add('process-push', payload);
+        
     }
     else if (event === 'ping'){
         console.log('Ping event received');
