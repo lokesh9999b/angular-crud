@@ -17,7 +17,7 @@ router.post('/github', (req:Request, res:Response)=>{
         console.log(`Repo: ${repoName}`);
         console.log(`Pusher: ${pusherName}`);
         console.log(`Branch: ${branch}`);
-        console.log(`Commit: ${commit}`);
+        // console.log(`Commit: ${commit}`);
 
         if (payload.commits && payload.commits.length >0)
         {
