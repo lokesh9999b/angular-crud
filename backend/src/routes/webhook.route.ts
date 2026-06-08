@@ -12,7 +12,7 @@ router.post('/github', (req:Request, res:Response)=>{
         const repoName = payload.repository?.name;
         const pusherName= payload.pusher?.name;
         const branch = payload.ref;
-        const commit = payload.Commits;
+        const commit = payload.commits;
         
         console.log(`Repo: ${repoName}`);
         console.log(`Pusher: ${pusherName}`);
