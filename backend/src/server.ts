@@ -9,6 +9,7 @@ import './config/passport';
 import authRoutes from './routes/auth.route';
 import universityRoutes from './routes/university.route';
 import { requireAuth } from './middleware/auth.middleware';
+import webhookRoutes from './routes/webhook.route';
 dotenv.config();
 
 const app: Application = express();
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use('/students', requireAuth, studentRoutes);
 app.use('/api/universities', requireAuth, universityRoutes);
 app.use('/auth', authRoutes);
+app.use('/webhook', webhookRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
